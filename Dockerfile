@@ -5,7 +5,7 @@ RUN apt-get update -y && \
 RUN pip install --upgrade pip
 
 COPY requirements.txt ./
-COPY server.py ./
+COPY ./ ./
 RUN pip install -r requirements.txt
 
 EXPOSE 52200
