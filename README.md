@@ -6,7 +6,8 @@ Initialize the swarm running the command:
 
 `docker swarm init --advertise-addr=<IP ADDRESS>:52200`
 
-Then, build and deploy Docker compose with the following commands:
+Usually, local IP address can be used for local testing.
+Then, build and deploy Docker Compose with the following commands:
 
 ````
 docker-compose build
