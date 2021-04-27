@@ -39,7 +39,21 @@ Clients send a JSON object with measurements and get a response back with the po
       "z": <Z3>
     }
   },
-  "antenna": [<V1>, <V2>, ..., <VN>]
+  "antenna": [
+    {
+      "bssid": <BSSID1>,
+      "rssi": [<RSSI11>, <RSSI12>, ..., <RSSI1N>]
+    },
+    {
+      "bssid": <BSSID2>,
+      "rssi": [<RSSI21>, <RSSI22>, ..., <RSSI2N>]
+    },
+    ...
+    {
+      "bssid": <BSSID3>,
+      "rssi": [<RSSI31>, <RSSI32>, ..., <RSSI3N>]
+    }
+  ]
 }
 ````
 
