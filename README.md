@@ -20,7 +20,7 @@ Clients send a JSON object with measurements and get a response back with the po
 ````
 {
   "timestamp": <TIMESTAMP>,
-  "is_bluetooth": <BOOL>1,
+  "is_bluetooth": <BOOL1>,
   "is_wifi": <BOOL2>,
   "IMU": {
     "accelerometer": {
