@@ -1,4 +1,6 @@
 # Indoor Positioning Server
+![Tests](https://github.com/Awesome-sw8-project/server/actions/workflows/python-app.yml/badge.svg)
+
 This is our solution server for indoor positioning estimations.
 
 ## Setup
