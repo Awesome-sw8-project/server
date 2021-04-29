@@ -32,13 +32,13 @@ class Data:
 # Returns list of Data instances.
 def parse_json(str):
     obj = json.loads(str)
-    acc = obj["IMU"]["accelerometer"]
-    gyr = obj["IMU"]["gyroscope"]
-    mag = obj["IMU"]["magnometer"]
     data_list = []
 
     for element in obj:
         antenna_data = dict()
+        acc = element["IMU"]["accelerometer"]
+        gyr = element["IMU"]["gyroscope"]
+        mag = element["IMU"]["magnometer"]
 
         for antenna in element["antenna"]:
             antenna_data[antenna["bssid"]] = antenna["rssi"]
