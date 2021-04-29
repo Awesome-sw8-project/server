@@ -1,6 +1,6 @@
 # Parser module of JSON object containing Wi-Fi data and IMU data.
 
-import positioning_data as pd
+from jreq_parser import positioning_data as pd
 import json
 
 # Class representing parsed JSON object data.
