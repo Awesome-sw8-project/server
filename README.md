@@ -15,7 +15,7 @@ docker stack deploy -c docker-compose.yml server
 ````
 
 ## Usage
-Clients send a JSON object with measurements and get a response back with the position estimation. The transmission of these JSON objects happen using HTTP POST-requests. The JSON obejct format is as specified below:
+Clients send a JSON array of JSON objects with measurements and get a response back with the position estimation. The transmission of these JSON objects happen using HTTP POST-requests. A JSON array element is as specified below:
 
 ````
 {
