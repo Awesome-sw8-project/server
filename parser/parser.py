@@ -24,22 +24,27 @@ class Data:
 
     def get_imu_data(self):
         return self.imu
-    
+
     def get_antenna_data(self):
         return self.antenna
 
 # Main entry for parsing JSON object string.
+# Returns list of Data instances.
 def parse_json(str):
     obj = json.loads(str)
     acc = obj["IMU"]["accelerometer"]
     gyr = obj["IMU"]["gyroscope"]
     mag = obj["IMU"]["magnometer"]
-    antenna_data = dict()
+    data_list = []
 
-    for antenna in obj["antenna"]:
-        antenna_data[antenna["bssid"]] = antenna["rssi"]
+    for element in obj:
+        antenna_data = dict()
 
-    imu = pd.IMU([acc["x"], acc["y"], acc["z"]], [gyr["x"], gyr["y"], gyr["z"]], [mag["x"], mag["y"], mag["z"]])
-    antenna = pd.Antenna(antenna_data)
+        for antenna in element["antenna"]:
+            antenna_data[antenna["bssid"]] = antenna["rssi"]
 
-    return Data(obj["timestamp"], obj["is_bluetooth"], obj["is_wifi"], imu, antenna)
+        imu = pd.IMU([acc["x"], acc["y"], acc["z"]], [gyr["x"], gyr["y"], gyr["z"]], [mag["x"], mag["y"], mag["z"]])
+        antenna = pd.Antenna(antenna_data)
+        data_list.append(Data(element["timestamp"], element["is_bluetooth"], element["is_wifi"], imu, antenna))
+
+    return data_list
