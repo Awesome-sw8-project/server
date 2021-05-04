@@ -1,5 +1,6 @@
 from flask import Flask, request
 import estimator.estimate as est
+import jreq_parser.req_parser
 
 app = Flask(__name__)
 
