@@ -1,5 +1,6 @@
 # Estimation wrapper file.
 
 # Entry estimation function.
-def estimate():
-    "Hello, dude!"
+# Argument data is of type Data.
+def estimate(data):
+    return [0, 0, 0]
