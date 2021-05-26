@@ -4,7 +4,7 @@
 This is our solution server for indoor positioning estimations.
 
 ## Setup
-Add the hybrid estimator by changing to directory 'estimtor'.
+Add the hybrid estimator by changing to directory `estimator`.
 Clone the `experiments` repository running the following command:
 
 ````
