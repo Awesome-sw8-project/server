@@ -11,7 +11,7 @@ def test_single_json():
                      \"x\": 1,
                      \"y\": 2,
                      \"z\": 3
-                 }
+                 },
                  \"IMU\": {
                      \"accelerometer\": {
                          \"x\": 1,
@@ -66,7 +66,7 @@ def test_multi_json():
                      \"x\": 10,
                      \"y\": 20,
                      \"z\": 30
-                 }
+                 },
                  \"IMU\": {
                      \"accelerometer\": {
                      \"x\": 1,
@@ -103,7 +103,7 @@ def test_multi_json():
                  \"x\": 10,
                  \"y\": 5,
                  \"z\": 15
-             }
+             },
              \"IMU\": {
                  \"accelerometer\": {
                      \"x\": 5,
