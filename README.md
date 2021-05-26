@@ -4,9 +4,18 @@
 This is our solution server for indoor positioning estimations.
 
 ## Setup
-Initialize the swarm running the command:
+Add the hybrid estimator by changing to directory `estimator`.
+Clone the `experiments` repository running the following command:
 
-`docker swarm init --advertise-addr=<IP ADDRESS>:52200`
+````
+git clone https://github.com/Awesome-sw8-project/experiments.git
+````
+
+Initialize the swarm running the command from the root directory:
+
+````
+docker swarm init --advertise-addr=<IP ADDRESS>:52200
+````
 
 Usually, local IP address can be used for local testing.
 Then, build and deploy Docker Compose with the following commands:
@@ -24,6 +33,11 @@ Clients send a JSON array of JSON objects with measurements and get a response b
   "timestamp": <TIMESTAMP>,
   "is_bluetooth": <BOOL1>,
   "is_wifi": <BOOL2>,
+  "start": {
+    "x": <X0>,
+    "y": <Y0>,
+    "z": <Z0>
+  }
   "IMU": {
     "accelerometer": {
       "x": <X1>,

@@ -7,6 +7,11 @@ def test_single_json():
     j_str = """[{\"timestamp\": 1,
                  \"is_bluetooth\": true,
                  \"is_wifi\": false,
+                 \"start\": {
+                     \"x\": 1,
+                     \"y\": 2,
+                     \"z\": 3
+                 },
                  \"IMU\": {
                      \"accelerometer\": {
                          \"x\": 1,
@@ -57,6 +62,11 @@ def test_multi_json():
     j_str = """[{\"timestamp\": 1,
                  \"is_bluetooth\": true,
                  \"is_wifi\": false,
+                 \"start\": {
+                     \"x\": 10,
+                     \"y\": 20,
+                     \"z\": 30
+                 },
                  \"IMU\": {
                      \"accelerometer\": {
                      \"x\": 1,
@@ -89,6 +99,11 @@ def test_multi_json():
              \"timestamp\": 2,
              \"is_bluetooth\": true,
              \"is_wifi\": false,
+             \"start\": {
+                 \"x\": 10,
+                 \"y\": 5,
+                 \"z\": 15
+             },
              \"IMU\": {
                  \"accelerometer\": {
                      \"x\": 5,
@@ -140,3 +155,5 @@ def test_multi_json():
     assert(data1.get_antenna_data().get_rssis(56789) == [20, 40, 60])
     assert(data2.get_antenna_data().get_rssis(59372) == [80, 60, 40])
     assert(data2.get_antenna_data().get_rssis(44553) == [50, 60, 40])
+
+test_single_json()

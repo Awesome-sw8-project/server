@@ -1,5 +1,6 @@
-from flask import Flask, request
+from flask import Flask, request, make_response
 import estimator.estimate as est
+import estimator.experiments.hybrid as hbrd
 import jreq_parser.req_parser as parser
 import json
 
@@ -10,15 +11,20 @@ app = Flask(__name__)
 def entry():
     try:
         data = parser.parse_json(json.dumps(request.get_json()))
+
+        if len(data) == 0:
+            return make_response("No input measurements given.", 406)
+
         estimated_position = None
+        hybrid = hbrd.PDRMLHybrid(data[0].get_start_location(), "lightgbm")
 
         for element in data:
-            estimated_position = est.estimate(element)
+            estimated_position = est.estimate(hybrid, element)
 
         return json.dumps({"x": estimated_position[0], "y": estimated_position[1], "z": estimated_position[2]})
-    
+
     except Exception as exc:
-        return "JSON parse error."
+        return make_response("JSON parse error.", 406)
 
 # Error point.
 @app.route('/', methods = ['GET'])
