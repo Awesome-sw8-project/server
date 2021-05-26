@@ -5,7 +5,7 @@ import json
 
 # Class representing parsed JSON object data.
 class Data:
-    def __init__(self, timestamp, is_bluetooth, start_location, is_wifi, imu, antenna):
+    def __init__(self, timestamp, is_bluetooth, is_wifi, start_location, imu, antenna):
         self.timestamp = timestamp
         self.bluetooth = is_bluetooth
         self.wifi = is_wifi

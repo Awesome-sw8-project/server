@@ -155,3 +155,5 @@ def test_multi_json():
     assert(data1.get_antenna_data().get_rssis(56789) == [20, 40, 60])
     assert(data2.get_antenna_data().get_rssis(59372) == [80, 60, 40])
     assert(data2.get_antenna_data().get_rssis(44553) == [50, 60, 40])
+
+test_single_json()
