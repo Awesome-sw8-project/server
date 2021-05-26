@@ -5,13 +5,17 @@ This is our solution server for indoor positioning estimations.
 
 ## Setup
 Add the hybrid estimator by changing to directory 'estimtor'.
-Clone the 'experiments' repository running the following command:
+Clone the `experiments` repository running the following command:
 
-'git clone https://github.com/Awesome-sw8-project/experiments.git'
+````
+git clone https://github.com/Awesome-sw8-project/experiments.git
+````
 
 Initialize the swarm running the command from the root directory:
 
-`docker swarm init --advertise-addr=<IP ADDRESS>:52200`
+````
+docker swarm init --advertise-addr=<IP ADDRESS>:52200
+````
 
 Usually, local IP address can be used for local testing.
 Then, build and deploy Docker Compose with the following commands:
