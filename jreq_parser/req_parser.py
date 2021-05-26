@@ -5,12 +5,13 @@ import json
 
 # Class representing parsed JSON object data.
 class Data:
-    def __init__(self, timestamp, is_bluetooth, is_wifi, imu, antenna):
+    def __init__(self, timestamp, is_bluetooth, start_location, is_wifi, imu, antenna):
         self.timestamp = timestamp
         self.bluetooth = is_bluetooth
         self.wifi = is_wifi
         self.imu = imu
         self.antenna = antenna
+        self.start = start_location
 
     # Getter methods.
     def get_timestamp(self):
@@ -21,6 +22,9 @@ class Data:
 
     def is_wifi(self):
         return self.wifi
+
+    def get_start_location(self):
+        return self.start
 
     def get_imu_data(self):
         return self.imu
@@ -39,12 +43,13 @@ def parse_json(str):
         acc = element["IMU"]["accelerometer"]
         gyr = element["IMU"]["gyroscope"]
         mag = element["IMU"]["magnometer"]
+        start = [element["start"]["x"], element["start"]["y"], element["start"]["z"]]
 
         for antenna in element["antenna"]:
             antenna_data[antenna["bssid"]] = antenna["rssi"]
 
         imu = pd.IMU([acc["x"], acc["y"], acc["z"]], [gyr["x"], gyr["y"], gyr["z"]], [mag["x"], mag["y"], mag["z"]])
         antenna = pd.Antenna(antenna_data)
-        data_list.append(Data(element["timestamp"], element["is_bluetooth"], element["is_wifi"], imu, antenna))
+        data_list.append(Data(element["timestamp"], element["is_bluetooth"], element["is_wifi"], start, imu, antenna))
 
     return data_list
