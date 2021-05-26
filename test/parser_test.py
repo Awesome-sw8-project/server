@@ -7,6 +7,11 @@ def test_single_json():
     j_str = """[{\"timestamp\": 1,
                  \"is_bluetooth\": true,
                  \"is_wifi\": false,
+                 \"start\": {
+                     \"x\": 1,
+                     \"y\": 2,
+                     \"z\": 3
+                 }
                  \"IMU\": {
                      \"accelerometer\": {
                          \"x\": 1,
@@ -57,6 +62,11 @@ def test_multi_json():
     j_str = """[{\"timestamp\": 1,
                  \"is_bluetooth\": true,
                  \"is_wifi\": false,
+                 \"start\": {
+                     \"x\": 10,
+                     \"y\": 20,
+                     \"z\": 30
+                 }
                  \"IMU\": {
                      \"accelerometer\": {
                      \"x\": 1,
@@ -89,6 +99,11 @@ def test_multi_json():
              \"timestamp\": 2,
              \"is_bluetooth\": true,
              \"is_wifi\": false,
+             \"start\": {
+                 \"x\": 10,
+                 \"y\": 5,
+                 \"z\": 15
+             }
              \"IMU\": {
                  \"accelerometer\": {
                      \"x\": 5,
